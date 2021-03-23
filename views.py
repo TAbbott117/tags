@@ -10,7 +10,7 @@ def show_tags():
     tags_html = '\n'.join(list(map(lambda x: "<a href=\"/tags/%s\">%s</a><br>" % (x.name, x.name), tags)))
     form_html = "<form action=\"/tags\" method=\"POST\"><label>Enter a tag: </label><input name=\"tag-name\"></form>"
     #embed()
-    return "<h1>The Ultimate Tag Manager</h1><a href=\"/\">Home</a> <a href=\"/about\">About</a><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (app.config['config']['awesome_image'],tags_html, form_html)
+    return "<head><title>Hello Sol!</title></head><h1>The Ultimate Tag Manager</h1><a href=\"/\">Home</a> <a href=\"/about\">About</a><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (app.config['config']['awesome_image'],tags_html, form_html)
 
 
 @app.route('/tags', methods=['POST'])
