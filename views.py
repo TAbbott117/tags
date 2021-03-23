@@ -1,7 +1,11 @@
 from flask import request, redirect
 from datetime import datetime
+<<<<<<< HEAD
 from app import app
 #this is a change
+=======
+from app import app, cfg
+>>>>>>> origin/more_config
 from tag import Tag
 
 @app.route('/', methods=['GET'])
@@ -10,8 +14,12 @@ def show_tags():
     tags_html = '\n'.join(list(map(lambda x: "<a href=\"/tags/%s\">%s</a><br>" % (x.name, x.name), tags)))
     form_html = "<form action=\"/tags\" method=\"POST\"><label>Enter a tag: </label><input name=\"tag-name\"></form>"
     #embed()
-    return "<head><title>Hello Sol!</title></head><h1>The Ultimate Tag Manager</h1><a href=\"/\">Home</a> <a href=\"/about\">About</a><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (app.config['config']['awesome_image'],tags_html, form_html)
+<<<<<<< HEAD
+    return "<h1>The Ultimate Tag Manager</h1><a href=\"/\">Home</a> <a href=\"/about\">About</a><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (app.config['config']['awesome_image'],tags_html, form_html)
 
+=======
+    return "<h1>The Ultimate Tag Manager</h1><h1>%s</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (cfg['title'],cfg['awesome_image'],tags_html, form_html)
+>>>>>>> origin/more_config
 
 @app.route('/tags', methods=['POST'])
 def add_tag():
